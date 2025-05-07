@@ -1,141 +1,170 @@
+import 'package:conecta_mayor/screens/assistance/videocall_support_screen.dart';
+import 'package:conecta_mayor/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class VideoCallScreen extends StatefulWidget {
-  const VideoCallScreen({super.key});
+  final String title;
+
+  const VideoCallScreen({super.key, required this.title});
 
   @override
   State<VideoCallScreen> createState() => _VideoCallScreenState();
 }
 
 class _VideoCallScreenState extends State<VideoCallScreen> {
-  bool _isVideoOn = true;
-  bool _isMicOn = true;
-  bool _isFrontCamera = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            // Video remoto (soporte)
-            _buildRemoteVideo(),
-            // Video local (usuario)
-            _buildLocalVideo(),
-            // Controles de llamada
-            _buildCallControls(),
-            // Encabezado con información
-            _buildCallHeader(),
-          ],
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF3366FF),
+        foregroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, size: 31),
+          onPressed: () => Navigator.pop(context),
         ),
-      ),
-    );
-  }
-
-  Widget _buildRemoteVideo() {
-    return Container(
-      color: Colors.grey[900],
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage('assets/support_avatar.png'),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Soporte Técnico',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              _isVideoOn ? 'Estableciendo conexión...' : 'Llamada en curso',
-              style: const TextStyle(color: Colors.white70, fontSize: 20),
-            ),
-          ],
+        title: Text(
+          widget.title,
+          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
         ),
-      ),
-    );
-  }
-
-  Widget _buildLocalVideo() {
-    return Positioned(
-      bottom: 120,
-      right: 20,
-      child: GestureDetector(
-        onTap: () => setState(() => _isFrontCamera = !_isFrontCamera),
-        child: Container(
-          width: 150,
-          height: 200,
-          decoration: BoxDecoration(
-            color: _isVideoOn ? Colors.blueGrey[800] : Colors.black,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.white, width: 2),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.home, size: 32),
+            onPressed:
+                () => Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  (Route<dynamic> route) => false,
+                ),
+            tooltip: 'Inicio',
           ),
-          child:
-              _isVideoOn
-                  ? Icon(
-                    _isFrontCamera ? Icons.face : Icons.face_retouching_natural,
-                    color: Colors.white,
-                    size: 50,
-                  )
-                  : const Icon(
-                    Icons.videocam_off,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-        ),
+        ],
       ),
+      body: _buildBodyContent(),
+      backgroundColor: const Color(0xFFF4F8FF),
     );
   }
 
-  Widget _buildCallControls() {
-    return Positioned(
-      bottom: 20,
-      left: 0,
-      right: 0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  Widget _buildBodyContent() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Botón de micrófono
-          CircleAvatar(
-            radius: 30,
-            backgroundColor: Colors.white.withOpacity(0.2),
-            child: IconButton(
-              icon: Icon(
-                _isMicOn ? Icons.mic : Icons.mic_off,
-                color: Colors.white,
-                size: 30,
+          const Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: Text(
+                'Contactos de Soporte',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF1A53F8),
+                ),
               ),
-              onPressed: () => setState(() => _isMicOn = !_isMicOn),
             ),
           ),
-          // Botón de colgar
-          CircleAvatar(
-            radius: 35,
-            backgroundColor: Colors.red,
-            child: IconButton(
-              icon: const Icon(Icons.call_end, color: Colors.white, size: 36),
-              onPressed: () => Navigator.pop(context),
+          _buildInstructions(),
+          const SizedBox(height: 16),
+          _buildSupportContacts(),
+          const SizedBox(height: 16),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSupportContacts() {
+    return Container(
+      margin: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          const Padding(padding: EdgeInsets.all(16)),
+          _buildContactItem(name: 'Soporte Bancario', phone: '3101234567'),
+          const Divider(height: 1, thickness: 1, indent: 16, endIndent: 16),
+          _buildContactItem(name: 'Soporte Técnico', phone: '3009876543'),
+          const Divider(height: 1, thickness: 1, indent: 16, endIndent: 16),
+          _buildContactItem(name: 'Soporte Médico', phone: '3204567890'),
+          const Divider(height: 1, thickness: 1, indent: 16, endIndent: 16),
+          _buildContactItem(name: 'Soporte Familiar', phone: '3155551234'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildContactItem({required String name, required String phone}) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: const Color(0xFFE6F0FF),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: Colors.transparent),
+      ),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        children: [
+          const CircleAvatar(
+            radius: 16,
+            backgroundColor: Color(0xFFCFDEFF),
+            child: Icon(Icons.person, color: Color(0xFF3366FF), size: 26),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  phone,
+                  style: const TextStyle(
+                    fontSize: 26,
+                    color: Color.fromARGB(255, 61, 61, 61),
+                  ),
+                ),
+              ],
             ),
           ),
-          // Botón de cámara
-          CircleAvatar(
-            radius: 30,
-            backgroundColor: Colors.white.withOpacity(0.2),
-            child: IconButton(
-              icon: Icon(
-                _isVideoOn ? Icons.videocam : Icons.videocam_off,
-                color: Colors.white,
-                size: 30,
+          ElevatedButton.icon(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => VideoCallSupportScreen(
+                        title: name,
+                        phoneNumber: phone,
+                      ),
+                ),
+              );
+            },
+            icon: const Icon(Icons.videocam, size: 24),
+            label: const Text(
+              'Video',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF3366FF),
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
               ),
-              onPressed: () => setState(() => _isVideoOn = !_isVideoOn),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             ),
           ),
         ],
@@ -143,27 +172,42 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
     );
   }
 
-  Widget _buildCallHeader() {
-    return Positioned(
-      top: 20,
-      left: 20,
-      right: 20,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  Widget _buildInstructions() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Duración de la llamada (simulada)
-          const Text(
-            '05:23',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+          const Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Instrucciones',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          // Botón para más opciones
-          IconButton(
-            icon: const Icon(Icons.more_vert, color: Colors.white, size: 30),
-            onPressed: () {},
+          const SizedBox(height: 12),
+          const Text(
+            'A continuación encontrará una lista de contactos de soporte. Elige con cual deseas comunicarte y empieza tu videollamada para darte una mejor asesoría.',
+            style: TextStyle(
+              fontSize: 24,
+              color: Color.fromARGB(255, 22, 22, 22),
+            ),
           ),
         ],
       ),

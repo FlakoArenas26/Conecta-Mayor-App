@@ -1,3 +1,4 @@
+import 'package:conecta_mayor/screens/assistance/chat_screen.dart';
 import 'package:conecta_mayor/screens/assistance/sos_digital_screen.dart';
 import 'package:conecta_mayor/screens/assistance/videocall_screen.dart';
 import 'package:conecta_mayor/screens/home/home_screen.dart';
@@ -67,12 +68,13 @@ class _AssistanceScreenState extends State<AssistanceScreen> {
       description:
           'Realiza una videollamada para recibir soporte en tiempo real',
       icon: Icons.video_camera_back,
-      destination: VideoCallScreen(),
+      destination: VideoCallScreen(title: 'Videollamada de Asistencia'),
     ),
     AssistanceOption(
       title: 'Chat de Ayuda',
       description: 'Envía mensajes para recibir soporte por escrito',
       icon: Icons.chat_bubble,
+      destination: ChatScreen(title: 'Chat de Ayuda'),
     ),
     AssistanceOption(
       title: 'Agendar Capacitación',

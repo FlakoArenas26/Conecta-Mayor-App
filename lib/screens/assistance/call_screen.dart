@@ -15,7 +15,7 @@ class CallScreen extends StatefulWidget {
 }
 
 class _CallScreenState extends State<CallScreen> {
-  bool _isCallConnected = false;
+  final bool _isCallConnected = false;
 
   @override
   Widget build(BuildContext context) {
