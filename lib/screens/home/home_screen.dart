@@ -1,4 +1,6 @@
 import 'package:conecta_mayor/screens/assistance/assistance_screen.dart';
+import 'package:conecta_mayor/screens/security/security_screen.dart';
+import 'package:conecta_mayor/screens/tips/tips_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:conecta_mayor/screens/learn/learn_screen.dart';
 
@@ -105,12 +107,32 @@ class HomeScreen extends StatelessWidget {
                             context,
                             title: 'Seguridad',
                             icon: Icons.shield,
+                            onTap:
+                                () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => const SecurityScreen(
+                                          title: 'Seguridad',
+                                        ),
+                                  ),
+                                ),
                           ),
                           SizedBox(height: screenHeight * 0.02),
                           _buildOptionButton(
                             context,
                             title: 'Consejos',
                             icon: Icons.lightbulb,
+                            onTap:
+                                () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => const TipsScreen(
+                                          title: 'Consejos Prácticos',
+                                        ),
+                                  ),
+                                ),
                           ),
                           SizedBox(height: screenHeight * 0.04),
                         ],

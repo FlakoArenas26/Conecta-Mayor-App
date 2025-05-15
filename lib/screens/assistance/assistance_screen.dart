@@ -1,3 +1,4 @@
+import 'package:conecta_mayor/screens/assistance/capacitation_screen.dart';
 import 'package:conecta_mayor/screens/assistance/chat_screen.dart';
 import 'package:conecta_mayor/screens/assistance/sos_digital_screen.dart';
 import 'package:conecta_mayor/screens/assistance/videocall_screen.dart';
@@ -80,6 +81,7 @@ class _AssistanceScreenState extends State<AssistanceScreen> {
       title: 'Agendar Capacitación',
       description: 'Programa una sesión personalizada con un instructor',
       icon: Icons.calendar_today,
+      destination: CapacitationScreen(title: 'Agendar Capacitación'),
     ),
   ];
 
