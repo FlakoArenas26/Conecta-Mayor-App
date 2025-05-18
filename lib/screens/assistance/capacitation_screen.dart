@@ -61,7 +61,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF1A53F8),
+                  color: Color(0xFF3366FF),
                 ),
               ),
             ),
@@ -73,7 +73,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border(
-                left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                left: BorderSide(color: const Color(0xFF3366FF), width: 5),
               ),
               color: Colors.white,
               boxShadow: [
@@ -120,7 +120,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border(
-                left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                left: BorderSide(color: const Color(0xFF3366FF), width: 5),
               ),
               color: Colors.white,
               boxShadow: [
@@ -167,7 +167,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border(
-                left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                left: BorderSide(color: const Color(0xFF3366FF), width: 5),
               ),
               color: Colors.white,
               boxShadow: [
@@ -221,7 +221,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
                       ? () => _showConfirmationDialog(context)
                       : null,
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1A53F8),
+                backgroundColor: const Color(0xFF3366FF),
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -326,7 +326,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
                 OutlinedButton(
                   onPressed: () => Navigator.of(context).pop(),
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Color(0xFF1A53F8)),
+                    side: const BorderSide(color: Color(0xFF3366FF)),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 12,
@@ -335,7 +335,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
                   child: const Text(
                     'Cancelar',
                     style: TextStyle(
-                      color: Color(0xFF1A53F8),
+                      color: Color(0xFF3366FF),
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
@@ -356,7 +356,7 @@ class _CapacitationScreenState extends State<CapacitationScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1A53F8),
+                    backgroundColor: const Color(0xFF3366FF),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 12,
@@ -402,7 +402,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         return Theme(
           data: ThemeData.light().copyWith(
             colorScheme: const ColorScheme.light(
-              primary: Color(0xFF1A53F8),
+              primary: Color(0xFF3366FF),
               onPrimary: Colors.white,
             ),
             dialogBackgroundColor: Colors.white,
@@ -437,7 +437,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
               "${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}",
               style: const TextStyle(fontSize: 26, color: Colors.black),
             ),
-            const Icon(Icons.calendar_today, color: Color(0xFF1A53F8)),
+            const Icon(Icons.calendar_today, color: Color(0xFF3366FF)),
           ],
         ),
       ),
@@ -465,7 +465,7 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
         return Theme(
           data: ThemeData.light().copyWith(
             colorScheme: const ColorScheme.light(
-              primary: Color(0xFF1A53F8),
+              primary: Color(0xFF3366FF),
               onPrimary: Colors.white,
             ),
             dialogBackgroundColor: Colors.white,
@@ -500,7 +500,7 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
               _selectedTime.format(context),
               style: const TextStyle(fontSize: 26, color: Colors.black),
             ),
-            const Icon(Icons.access_time, color: Color(0xFF1A53F8)),
+            const Icon(Icons.access_time, color: Color(0xFF3366FF)),
           ],
         ),
       ),
@@ -546,7 +546,7 @@ class _InstructorDropdownWidgetState extends State<InstructorDropdownWidget> {
         value: _selectedInstructor,
         isExpanded: true,
         underline: const SizedBox(),
-        icon: const Icon(Icons.arrow_drop_down, color: Color(0xFF1A53F8)),
+        icon: const Icon(Icons.arrow_drop_down, color: Color(0xFF3366FF)),
         hint: const Text(
           'Selecciona un instructor',
           style: TextStyle(fontSize: 22, color: Colors.grey),
@@ -558,7 +558,7 @@ class _InstructorDropdownWidgetState extends State<InstructorDropdownWidget> {
                 value: instructor,
                 child: Row(
                   children: [
-                    const Icon(Icons.person, color: Color(0xFF1A53F8)),
+                    const Icon(Icons.person, color: Color(0xFF3366FF)),
                     const SizedBox(width: 12),
                     Text(instructor),
                   ],

@@ -147,7 +147,7 @@ class _PasswordSecureScreenState extends State<PasswordSecureScreen> {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF1A53F8),
+                  color: const Color(0xFF3366FF),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -165,7 +165,7 @@ class _PasswordSecureScreenState extends State<PasswordSecureScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border(
-                    left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                    left: BorderSide(color: const Color(0xFF3366FF), width: 5),
                   ),
                   color: Colors.white,
                   boxShadow: [
@@ -184,7 +184,11 @@ class _PasswordSecureScreenState extends State<PasswordSecureScreen> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.lock, color: Colors.blue, size: 30),
+                          Icon(
+                            Icons.lock,
+                            color: const Color(0xFF3366FF),
+                            size: 30,
+                          ),
                           SizedBox(width: 10),
                           const Text(
                             "Evaluar Contraseña",
@@ -201,6 +205,7 @@ class _PasswordSecureScreenState extends State<PasswordSecureScreen> {
                         controller: _passwordController,
                         obscureText: _obscureText,
                         onChanged: _checkPasswordStrength,
+                        style: TextStyle(fontSize: 28),
                         decoration: InputDecoration(
                           hintText: 'Ingresa tu contraseña',
                           hintStyle: TextStyle(fontSize: 28),
@@ -278,7 +283,7 @@ class _PasswordSecureScreenState extends State<PasswordSecureScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border(
-                    left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                    left: BorderSide(color: const Color(0xFF3366FF), width: 5),
                   ),
                   color: Colors.white,
                   boxShadow: [
@@ -344,7 +349,7 @@ class _PasswordSecureScreenState extends State<PasswordSecureScreen> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF1A53F8),
+                            backgroundColor: const Color(0xFF3366FF),
                             padding: const EdgeInsets.symmetric(vertical: 15),
                           ),
                           onPressed: _generatePassword,
@@ -371,7 +376,7 @@ class _PasswordSecureScreenState extends State<PasswordSecureScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border(
-                    left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                    left: BorderSide(color: const Color(0xFF3366FF), width: 5),
                   ),
                   color: Colors.white,
                   boxShadow: [

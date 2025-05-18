@@ -37,18 +37,18 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Century Gothic',
         textTheme: const TextTheme(
           displayLarge: TextStyle(
-            fontSize: 46,
+            fontSize: 50,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
           bodyMedium: TextStyle(
-            fontSize: 22,
+            fontSize: 28,
             fontWeight: FontWeight.normal,
             color: Colors.white,
             height: 1.5,
           ),
           titleLarge: TextStyle(
-            fontSize: 28,
+            fontSize: 32,
             fontWeight: FontWeight.bold,
             color: Color(0xFF1C419B),
           ),

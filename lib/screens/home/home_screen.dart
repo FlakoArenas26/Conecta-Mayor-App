@@ -19,9 +19,9 @@ class HomeScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.center,
             colors: [
-              Color(0xFF2D68F4),
-              Color(0xFF2D68F4),
-              Color(0xFF2D68F4),
+              Color(0xFF3366FF),
+              Color(0xFF3366FF),
+              Color(0xFF3366FF),
               Colors.white,
             ],
             stops: [0.0, 0.5, 0.55, 0.55],
@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   'Conecta Mayor',
                   style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    fontSize: screenHeight * 0.04, // Tamaño responsivo
+                    fontSize: screenHeight * 0.05, // Tamaño responsivo
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   'Tu guía digital personalizada',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontSize: screenHeight * 0.02,
+                    fontSize: screenHeight * 0.022,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                   child: Card(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+                      borderRadius: BorderRadius.circular(50),
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(screenWidth * 0.04),
@@ -68,9 +68,9 @@ class HomeScreen extends StatelessWidget {
                           Text(
                             '¿Qué te gustaría hacer hoy?',
                             style: TextStyle(
-                              fontSize: screenHeight * 0.028, // Responsivo
+                              fontSize: screenHeight * 0.032, // Responsivo
                               fontWeight: FontWeight.bold,
-                              color: const Color(0xFF0633A4),
+                              color: const Color(0xFF3366FF),
                             ),
                             textAlign: TextAlign.center,
                             maxLines: 2, // Previene overflow
@@ -161,12 +161,12 @@ class HomeScreen extends StatelessWidget {
       constraints: BoxConstraints(
         minWidth: screenWidth * 0.8, // Ancho mínimo responsivo
         maxWidth: screenWidth * 0.9, // Ancho máximo responsivo
-        minHeight: 80, // Altura mínima fija
+        minHeight: 130, // Altura mínima fija
       ),
       child: ElevatedButton(
         onPressed: onTap ?? () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF2D68F4),
+          backgroundColor: const Color(0xFF3366FF),
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
@@ -191,7 +191,7 @@ class HomeScreen extends StatelessWidget {
                 child: Text(
                   title,
                   style: TextStyle(
-                    fontSize: screenWidth * 0.05, // Tamaño responsivo
+                    fontSize: screenWidth * 0.07, // Tamaño responsivo
                     fontWeight: FontWeight.bold,
                   ),
                   overflow: TextOverflow.ellipsis, // Previene overflow

@@ -173,7 +173,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF1A53F8),
+                  color: const Color(0xFF3366FF),
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -191,7 +191,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border(
-                    left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                    left: BorderSide(color: const Color(0xFF3366FF), width: 5),
                   ),
                   color: Colors.white,
                   boxShadow: [
@@ -210,7 +210,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.language, color: Colors.blue, size: 30),
+                          Icon(Icons.language, color: const Color(0xFF3366FF)),
                           SizedBox(width: 10),
                           const Text(
                             "Ingresa el enlace a verificar",
@@ -226,8 +226,10 @@ class _VerifyScreenState extends State<VerifyScreen> {
                       // Campo de texto para ingresar el enlace
                       TextField(
                         controller: _urlController,
+                        style: TextStyle(fontSize: 28),
                         decoration: InputDecoration(
                           hintText: 'https://ejemplo.com',
+                          hintStyle: TextStyle(fontSize: 28),
                           border: OutlineInputBorder(),
                           errorText:
                               _showInvalidUrlError
@@ -246,7 +248,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF1A53F8),
+                            backgroundColor: const Color(0xFF3366FF),
                             padding: const EdgeInsets.symmetric(vertical: 15),
                           ),
                           onPressed: _verifyUrl,
@@ -273,7 +275,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border(
-                    left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+                    left: BorderSide(color: const Color(0xFF3366FF), width: 5),
                   ),
                   color: Colors.white,
                   boxShadow: [
@@ -336,7 +338,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
       children: [
         Icon(
           icon,
-          color: const Color(0xFF3366FF), // Icono en color negro
+          color: const Color(0xFF3366FF),
           size: 28, // Tamaño del icono ajustado
         ),
         const SizedBox(width: 12),

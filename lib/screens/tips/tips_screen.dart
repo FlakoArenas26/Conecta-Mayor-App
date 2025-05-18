@@ -1,4 +1,9 @@
 import 'package:conecta_mayor/screens/home/home_screen.dart';
+import 'package:conecta_mayor/screens/tips/communication_tips_screen.dart'
+    as comm;
+import 'package:conecta_mayor/screens/tips/entertainment_tips_screen.dart';
+import 'package:conecta_mayor/screens/tips/phone_tips_screen.dart';
+import 'package:conecta_mayor/screens/tips/reading_tips_tips_screen.dart';
 import 'package:flutter/material.dart';
 
 class TipsScreen extends StatefulWidget {
@@ -85,38 +90,89 @@ class _TipsScreenState extends State<TipsScreen> {
                       ),
                       const SizedBox(height: 30.0),
 
-                      // Card 1 - Lectura Digital
-                      _buildTipCard(
-                        Icons.menu_book,
-                        "Lectura Digital",
-                        "Cómo ajustar el texto para leer cómodamente",
+                      // Card 1 - Lectura Digital (ahora clickeable)
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => ReadingTipsScreen(
+                                    title: "Lectura Digital",
+                                  ),
+                            ),
+                          );
+                        },
+                        child: _buildTipCard(
+                          Icons.menu_book,
+                          "Lectura Digital",
+                          "Cómo ajustar el texto para leer cómodamente",
+                        ),
                       ),
 
                       const SizedBox(height: 20.0),
 
                       // Card 2 - Uso de Celular
-                      _buildTipCard(
-                        Icons.smartphone,
-                        "Uso de Celular",
-                        "Consejos para usar su teléfono sin dificultad",
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) =>
+                                      PhoneTipsScreen(title: "Uso de Celular"),
+                            ),
+                          );
+                        },
+                        child: _buildTipCard(
+                          Icons.smartphone,
+                          "Uso de Celular",
+                          "Consejos para usar su teléfono sin dificultad",
+                        ),
                       ),
 
                       const SizedBox(height: 20.0),
 
                       // Card 3 - Comunicación
-                      _buildTipCard(
-                        Icons.chat_bubble,
-                        "Comunicación",
-                        "Cómo comunicarse fácilmente con familiares y amigos",
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => comm.CommunicationTipsScreen(
+                                    title: "Comunicación",
+                                  ),
+                            ),
+                          );
+                        },
+                        child: _buildTipCard(
+                          Icons.chat_bubble,
+                          "Comunicación",
+                          "Cómo comunicarse fácilmente con familiares y amigos",
+                        ),
                       ),
 
                       const SizedBox(height: 20.0),
 
                       // Card 4 - Entretenimiento
-                      _buildTipCard(
-                        Icons.local_movies,
-                        "Entretenimiento",
-                        "Cómo disfrutar contenido digital de forma accesible",
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => EntertainmentTipsScreen(
+                                    title: "Entretenimiento",
+                                  ),
+                            ),
+                          );
+                        },
+                        child: _buildTipCard(
+                          Icons.local_movies,
+                          "Entretenimiento",
+                          "Cómo disfrutar contenido digital de forma accesible",
+                        ),
                       ),
                     ],
                   ),
@@ -136,7 +192,7 @@ class _TipsScreenState extends State<TipsScreen> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border(
-          left: BorderSide(color: const Color(0xFF1A53F8), width: 5),
+          left: BorderSide(color: const Color(0xFF3366FF), width: 5),
         ),
         color: Colors.white,
         boxShadow: [
@@ -153,7 +209,7 @@ class _TipsScreenState extends State<TipsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Icon(icon, color: Colors.blue, size: 75)),
+            Center(child: Icon(icon, color: const Color(0xFF3366FF), size: 60)),
             const SizedBox(height: 10),
             Center(
               child: Text(

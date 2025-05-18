@@ -58,7 +58,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF1A53F8),
+                  color: Color(0xFF3366FF),
                 ),
               ),
             ),
